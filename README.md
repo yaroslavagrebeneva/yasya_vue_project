@@ -6,5 +6,5 @@
 </h1>
 
 ### Result
+![Результат выполнения](https://github.com/yaroslavagrebeneva/yasya_vue_project/blob/1975ae05cea439ff7d9fc3571e36f09e9c896d32/Screenshot_2.png)
 
-![Результат выполнения](./assets/Screenshot_1.png)
