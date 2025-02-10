@@ -1,6 +1,12 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+<script>
+export default {
+  data() {
+    return {
+      name: 'John',
+      surn: 'Smit',
+    };
+  },
+};
 </script>
 
 <template>
@@ -16,7 +22,9 @@ import TheWelcome from './components/TheWelcome.vue'
     <TheWelcome />
     <div>
       <h2>Привет!</h2>
-      <p>Я - <strong>Яся</strong>, студентка <em>И-1-23</em>!</p>
+      <p>Я - <strong>{{ name }}</strong>, студент!</p>
+      <div>{{ name }}</div>
+      <div>{{ surn }}</div>
     </div>
   </main>
 </template>
