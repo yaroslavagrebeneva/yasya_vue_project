@@ -14,6 +14,10 @@ import TheWelcome from './components/TheWelcome.vue'
 
   <main>
     <TheWelcome />
+    <div>
+      <h2>Привет!</h2>
+      <p>Я - <strong>Яся</strong>, студентка <em>И-1-23</em>!</p>
+    </div>
   </main>
 </template>
 
