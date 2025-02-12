@@ -3,9 +3,12 @@ import { ref } from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
 import TheWelcome from './components/TheWelcome.vue';
 
-// Task#10_1 и Task#10_2: Метод для вывода текущей даты
-const showDate = () => {
-  alert(new Date().toLocaleDateString());
+// Task#11_1: Работа с data внутри метода
+const num1 = ref(1);
+const num2 = ref(2);
+
+const showSum = () => {
+  alert(num1.value + num2.value);
 };
 </script>
 
@@ -21,16 +24,10 @@ const showDate = () => {
   <main>
     <TheWelcome />
 
-    <!-- Task#10_1 -->
+    <!-- Task#11_1 -->
     <section>
-      <h2>Task#10_1</h2>
-      <button @click="showDate">Показать дату (клик)</button>
-    </section>
-
-    <!-- Task#10_2 -->
-    <section>
-      <h2>Task#10_2</h2>
-      <button @mouseover="showDate">Показать дату (наведение)</button>
+      <h2>Task#11_1</h2>
+      <button @click="showSum">Показать сумму</button>
     </section>
   </main>
 </template>
