@@ -3,12 +3,9 @@ import { ref, computed } from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
 import TheWelcome from './components/TheWelcome.vue';
 
-// Task#7_1: Вывести каждый элемент массива в отдельном абзаце
-const arr1 = ref(['x', 'y', 'z']);
-
-// Task#7_2: Вывести сумму элементов массива
-const arr2 = ref([1, 2, 3]);
-const sumArr2 = computed(() => arr2.value.reduce((sum, num) => sum + num, 0));
+// Task#8_1: Вывести сумму значений объекта
+const obj = ref({ x: 1, y: 2, z: 3 });
+const sumObj = computed(() => Object.values(obj.value).reduce((sum, num) => sum + num, 0));
 </script>
 
 <template>
@@ -23,14 +20,10 @@ const sumArr2 = computed(() => arr2.value.reduce((sum, num) => sum + num, 0));
   <main>
     <TheWelcome />
 
+    <!-- Task#8_1 -->
     <section>
-      <h1>Task#7_1</h1>
-      <h3 v-for="(item, index) in arr1" :key="index">{{ item }}</h3>
-    </section>
-
-    <section>
-      <h1>Task#7_2</h1>
-      <h3>Сумма элементов массива: <strong>{{ sumArr2 }}</strong></h3>
+      <h2>Task#8_1</h2>
+      <p>Сумма элементов объекта: <strong>{{ sumObj }}</strong></p>
     </section>
   </main>
 </template>
