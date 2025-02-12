@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
 import TheWelcome from './components/TheWelcome.vue';
 
-// Task#9_1: Метод для вывода текущей даты
+// Task#10_1 и Task#10_2: Метод для вывода текущей даты
 const showDate = () => {
   alert(new Date().toLocaleDateString());
 };
@@ -21,10 +21,16 @@ const showDate = () => {
   <main>
     <TheWelcome />
 
-    <!-- Task#9_1 -->
+    <!-- Task#10_1 -->
     <section>
-      <h2>Task#9_1</h2>
-      <button @click="showDate">Показать текущую дату</button>
+      <h2>Task#10_1</h2>
+      <button @click="showDate">Показать дату (клик)</button>
+    </section>
+
+    <!-- Task#10_2 -->
+    <section>
+      <h2>Task#10_2</h2>
+      <button @mouseover="showDate">Показать дату (наведение)</button>
     </section>
   </main>
 </template>
@@ -69,6 +75,7 @@ button {
   color: white;
   border: none;
   border-radius: 5px;
+  transition: background 0.3s;
 }
 
 button:hover {
