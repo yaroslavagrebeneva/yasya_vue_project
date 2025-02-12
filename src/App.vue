@@ -3,15 +3,12 @@ import { ref, computed } from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
 import TheWelcome from './components/TheWelcome.vue';
 
-// Task#6_1: Вывести квадрат свойства num
-const num = ref(5);
-const squaredNum = computed(() => num.value ** 2);
+// Task#7_1: Вывести каждый элемент массива в отдельном абзаце
+const arr1 = ref(['x', 'y', 'z']);
 
-// Task#6_2: Вывести сумму num1, num2, num3
-const num1 = ref(1);
-const num2 = ref(2);
-const num3 = ref(3);
-const sumNums = computed(() => num1.value + num2.value + num3.value);
+// Task#7_2: Вывести сумму элементов массива
+const arr2 = ref([1, 2, 3]);
+const sumArr2 = computed(() => arr2.value.reduce((sum, num) => sum + num, 0));
 </script>
 
 <template>
@@ -25,15 +22,15 @@ const sumNums = computed(() => num1.value + num2.value + num3.value);
 
   <main>
     <TheWelcome />
-    
+
     <section>
-      <h2>Task#6_1</h2>
-      <p>Квадрат числа {{ num }}: <strong>{{ squaredNum }}</strong></p>
+      <h1>Task#7_1</h1>
+      <h3 v-for="(item, index) in arr1" :key="index">{{ item }}</h3>
     </section>
 
     <section>
-      <h2>Task#6_2</h2>
-      <p>Сумма чисел {{ num1 }}, {{ num2 }}, {{ num3 }}: <strong>{{ sumNums }}</strong></p>
+      <h1>Task#7_2</h1>
+      <h3>Сумма элементов массива: <strong>{{ sumArr2 }}</strong></h3>
     </section>
   </main>
 </template>
