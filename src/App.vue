@@ -1,10 +1,23 @@
 <script setup>
+import { ref } from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
 import TheWelcome from './components/TheWelcome.vue';
 
-// Task#13_1: Метод для вывода квадрата числа
-const showSquare = (num) => {
-  alert(`Квадрат числа ${num}: ${num * num}`);
+// Task#14_1: Реактивное свойство text
+const text = ref('Начальный текст');
+
+// Task#14_2: Функция для изменения текста
+const changeText = () => {
+  text.value = 'Новое значение!';
+};
+
+// Task#14_3: Функции для установки разных значений
+const setFirstText = () => {
+  text.value = 'Первый текст';
+};
+
+const setSecondText = () => {
+  text.value = 'Второй текст';
 };
 </script>
 
@@ -20,12 +33,25 @@ const showSquare = (num) => {
   <main>
     <TheWelcome />
 
-    <!-- Task#13_1 и Task#13_2 -->
+    <!-- Task#14_1 -->
     <section>
-      <h2>Task#13_1</h2>
-      <p>Нажмите кнопку, чтобы увидеть квадрат числа:</p>
-      <button @click="showSquare(2)">Квадрат 2</button>
-      <button @click="showSquare(3)">Квадрат 3</button>
+      <h2>Task#14_1</h2>
+      <p>{{ text }}</p>
+    </section>
+
+    <!-- Task#14_2 -->
+    <section>
+      <h2>Task#14_2</h2>
+      <p>{{ text }}</p>
+      <button @click="changeText">Изменить текст</button>
+    </section>
+
+    <!-- Task#14_3 -->
+    <section>
+      <h2>Task#14_3</h2>
+      <p>{{ text }}</p>
+      <button @click="setFirstText">Первый вариант</button>
+      <button @click="setSecondText">Второй вариант</button>
     </section>
   </main>
 </template>
