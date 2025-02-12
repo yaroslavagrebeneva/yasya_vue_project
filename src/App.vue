@@ -1,11 +1,12 @@
 <script setup>
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
 import TheWelcome from './components/TheWelcome.vue';
 
-// Task#8_1: Вывести сумму значений объекта
-const obj = ref({ x: 1, y: 2, z: 3 });
-const sumObj = computed(() => Object.values(obj.value).reduce((sum, num) => sum + num, 0));
+// Task#9_1: Метод для вывода текущей даты
+const showDate = () => {
+  alert(new Date().toLocaleDateString());
+};
 </script>
 
 <template>
@@ -20,10 +21,10 @@ const sumObj = computed(() => Object.values(obj.value).reduce((sum, num) => sum 
   <main>
     <TheWelcome />
 
-    <!-- Task#8_1 -->
+    <!-- Task#9_1 -->
     <section>
-      <h2>Task#8_1</h2>
-      <p>Сумма элементов объекта: <strong>{{ sumObj }}</strong></p>
+      <h2>Task#9_1</h2>
+      <button @click="showDate">Показать текущую дату</button>
     </section>
   </main>
 </template>
@@ -58,5 +59,19 @@ header {
 
 section {
   margin: 20px 0;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #42b983;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #369f75;
 }
 </style>
