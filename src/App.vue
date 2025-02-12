@@ -1,18 +1,10 @@
 <script setup>
-import { ref } from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
 import TheWelcome from './components/TheWelcome.vue';
 
-// Task#12_1: Вспомогательный метод для получения дня недели
-const getWeekday = (num) => {
-  const weekdays = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
-  return weekdays[num] || 'Некорректное число';
-};
-
-// Task#12_2: Основной метод для вывода текущего дня недели
-const showCurrentWeekday = () => {
-  const today = new Date().getDay(); // Получаем номер дня недели (0-6)
-  alert(getWeekday(today));
+// Task#13_1: Метод для вывода квадрата числа
+const showSquare = (num) => {
+  alert(`Квадрат числа ${num}: ${num * num}`);
 };
 </script>
 
@@ -28,17 +20,12 @@ const showCurrentWeekday = () => {
   <main>
     <TheWelcome />
 
-    <!-- Task#12_1 -->
+    <!-- Task#13_1 и Task#13_2 -->
     <section>
-      <h2>Task#12_1</h2>
-      <p>Пример: 3 -> {{ getWeekday(3) }}</p>
-      <p>Пример: 6 -> {{ getWeekday(6) }}</p>
-    </section>
-
-    <!-- Task#12_2 -->
-    <section>
-      <h2>Task#12_2</h2>
-      <button @click="showCurrentWeekday">Показать текущий день недели</button>
+      <h2>Task#13_1</h2>
+      <p>Нажмите кнопку, чтобы увидеть квадрат числа:</p>
+      <button @click="showSquare(2)">Квадрат 2</button>
+      <button @click="showSquare(3)">Квадрат 3</button>
     </section>
   </main>
 </template>
@@ -84,6 +71,7 @@ button {
   border: none;
   border-radius: 5px;
   transition: background 0.3s;
+  margin-right: 10px;
 }
 
 button:hover {
