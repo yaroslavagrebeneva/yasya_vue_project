@@ -3,12 +3,16 @@ import { ref } from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
 import TheWelcome from './components/TheWelcome.vue';
 
-// Task#11_1: Работа с data внутри метода
-const num1 = ref(1);
-const num2 = ref(2);
+// Task#12_1: Вспомогательный метод для получения дня недели
+const getWeekday = (num) => {
+  const weekdays = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+  return weekdays[num] || 'Некорректное число';
+};
 
-const showSum = () => {
-  alert(num1.value + num2.value);
+// Task#12_2: Основной метод для вывода текущего дня недели
+const showCurrentWeekday = () => {
+  const today = new Date().getDay(); // Получаем номер дня недели (0-6)
+  alert(getWeekday(today));
 };
 </script>
 
@@ -24,10 +28,17 @@ const showSum = () => {
   <main>
     <TheWelcome />
 
-    <!-- Task#11_1 -->
+    <!-- Task#12_1 -->
     <section>
-      <h2>Task#11_1</h2>
-      <button @click="showSum">Показать сумму</button>
+      <h2>Task#12_1</h2>
+      <p>Пример: 3 -> {{ getWeekday(3) }}</p>
+      <p>Пример: 6 -> {{ getWeekday(6) }}</p>
+    </section>
+
+    <!-- Task#12_2 -->
+    <section>
+      <h2>Task#12_2</h2>
+      <button @click="showCurrentWeekday">Показать текущий день недели</button>
     </section>
   </main>
 </template>
