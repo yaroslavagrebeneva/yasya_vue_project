@@ -8,6 +8,7 @@ data() {
 		text: 'page',
 		href: 'page.html',
 	}
+
 }
 Сформируйте с помощью этих данных следующий код:
 <a href="page.html">page</a>.
@@ -15,4 +16,3 @@ data() {
 
 ### Result
 
-![Результат выполнения](./assets/Screenshot_1.png)

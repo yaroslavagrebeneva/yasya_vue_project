@@ -4,6 +4,8 @@ export default {
     return {
       name: 'John',
       surn: 'Smit',
+      text: 'page',
+      href: 'page.html',
     };
   },
 };
@@ -25,6 +27,7 @@ export default {
       <p>Я - <strong>{{ name }}</strong>, студент!</p>
       <div>{{ name }}</div>
       <div>{{ surn }}</div>
+      <a :href="href">{{ text }}</a>
     </div>
   </main>
 </template>
