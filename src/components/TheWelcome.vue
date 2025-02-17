@@ -1,19 +1,21 @@
 <script setup>
 import { ref } from 'vue';
 
-// Task#33 - Filtering Positive Numbers
-const items = ref([1, -2, 3, -4, 5]);
+// Task#34 - Displaying Products with Unique Keys
+const products = ref([
+  { id: 1, name: 'product1' },
+  { id: 2, name: 'product2' },
+  { id: 3, name: 'product3' },
+]);
 </script>
 
 <template>
   <div>
-    <h1>Task#33 - Positive Numbers</h1>
+    <h1>Task#34 - Product List</h1>
     <ul>
-      <template v-for="item in items">
-        <li v-if="item > 0" :key="item">
-          {{ item }}
-        </li>
-      </template>
+      <li v-for="product in products" :key="product.id">
+        {{ product.name }}
+      </li>
     </ul>
   </div>
 </template>
