@@ -1,47 +1,51 @@
 <script setup>
 import { ref } from 'vue';
 
-// Task#35 - List Manipulations
+// Task#36 - Styled Component
 const items = ref(['Item 1', 'Item 2', 'Item 3']);
 
 const addItem = () => {
   items.value.push(`Item ${items.value.length + 1}`);
 };
-
-const removeFirstItem = () => {
-  if (items.value.length) items.value.shift();
-};
-
-const removeLastItem = () => {
-  if (items.value.length) items.value.pop();
-};
-
-const removeSecondLastItem = () => {
-  if (items.value.length > 1) items.value.splice(-2, 1);
-};
-
-const sortItems = () => {
-  items.value.sort();
-};
-
-const reverseItems = () => {
-  items.value.reverse();
-};
 </script>
 
 <template>
-  <div>
-    <h1>Task#35 - List Manipulations</h1>
+  <div class="styled-container">
+    <h1>Task#36 - Styled Component</h1>
     <ul>
-      <li v-for="(item, index) in items" :key="index">
+      <li v-for="(item, index) in items" :key="index" class="styled-list-item">
         {{ item }}
       </li>
     </ul>
-    <button @click="addItem">Add Item</button>
-    <button @click="removeFirstItem">Remove First</button>
-    <button @click="removeLastItem">Remove Last</button>
-    <button @click="removeSecondLastItem">Remove Second Last</button>
-    <button @click="sortItems">Sort Items</button>
-    <button @click="reverseItems">Reverse Items</button>
+    <button @click="addItem" class="styled-btn">Add Item</button>
   </div>
 </template>
+
+<style>
+.styled-container {
+  text-align: center;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.styled-list-item {
+  color: green;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.styled-btn {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  background-color: purple;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.styled-btn:hover {
+  background-color: darkmagenta;
+}
+</style>
