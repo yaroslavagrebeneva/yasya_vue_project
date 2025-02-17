@@ -1,21 +1,21 @@
 <script setup>
 import { ref } from 'vue';
 
-// Task#27 - Перебор массива и вывод элементов в div
-const items = ref([1, 2, 3, 4, 5]);
-
-// Task#28 - Вывод ключей массива в списке ul
-const arr = ref(['x', 'y', 'z']);
+// Task#29 - Перебор объекта и вывод ключей, значений и индексов
+const users = ref({
+  user1: '100$',
+  user2: '200$',
+  user3: '300$'
+});
 </script>
 
 <template>
   <div>
-    <h1>Task#27</h1>
-    <div v-for="item in items" :key="item">{{ item }}</div>
-
-    <h1>Task#28</h1>
+    <h1>Task#29</h1>
     <ul>
-      <li v-for="(elem, key) in arr" :key="key">{{ key }}</li>
+      <li v-for="(value, key, index) in users" :key="key">
+        {{ key }} - {{ value }} - {{ index + 1 }}
+      </li>
     </ul>
   </div>
 </template>
