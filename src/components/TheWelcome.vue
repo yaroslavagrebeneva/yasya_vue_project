@@ -1,23 +1,14 @@
 <script setup>
 import { ref } from 'vue';
 
-// Task#36 - Styled Component
-const items = ref(['Item 1', 'Item 2', 'Item 3']);
-
-const addItem = () => {
-  items.value.push(`Item ${items.value.length + 1}`);
-};
+// Task#37 - Dynamic Class Binding
+const cssClasses = ref('highlight bold');
 </script>
 
 <template>
   <div class="styled-container">
-    <h1>Task#36 - Styled Component</h1>
-    <ul>
-      <li v-for="(item, index) in items" :key="index" class="styled-list-item">
-        {{ item }}
-      </li>
-    </ul>
-    <button @click="addItem" class="styled-btn">Add Item</button>
+    <h1>Task#37 - Dynamic Class Binding</h1>
+    <p :class="cssClasses">This is a styled paragraph.</p>
   </div>
 </template>
 
@@ -29,23 +20,11 @@ const addItem = () => {
   border-radius: 10px;
 }
 
-.styled-list-item {
-  color: green;
+.highlight {
+  color: blue;
+}
+
+.bold {
   font-weight: bold;
-  margin: 5px 0;
-}
-
-.styled-btn {
-  margin: 5px;
-  padding: 10px;
-  border: none;
-  background-color: purple;
-  color: white;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.styled-btn:hover {
-  background-color: darkmagenta;
 }
 </style>
