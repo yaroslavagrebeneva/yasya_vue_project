@@ -1,17 +1,31 @@
 <script setup>
 import { ref } from 'vue';
 
-// Task#38 - Object-based Class Binding
+// Task#39 - Reactive Class Binding
 const obj = ref({
-  done: true,
-  selected: false,
+  hidden: true,
 });
+
+const showElement = () => {
+  obj.value.hidden = false;
+};
+
+const hideElement = () => {
+  obj.value.hidden = true;
+};
+
+const toggleElement = () => {
+  obj.value.hidden = !obj.value.hidden;
+};
 </script>
 
 <template>
   <div class="styled-container">
-    <h1>Task#38 - Object-based Class Binding</h1>
-    <p :class="obj">This paragraph has conditional classes.</p>
+    <h1>Task#39 - Reactive Class Binding</h1>
+    <p :class="obj">This paragraph can be shown or hidden.</p>
+    <button @click="showElement">Show</button>
+    <button @click="hideElement">Hide</button>
+    <button @click="toggleElement">Toggle</button>
   </div>
 </template>
 
@@ -23,13 +37,7 @@ const obj = ref({
   border-radius: 10px;
 }
 
-.done {
-  text-decoration: line-through;
-  color: green;
-}
-
-.selected {
-  font-weight: bold;
-  color: red;
+.hidden {
+  display: none;
 }
 </style>
