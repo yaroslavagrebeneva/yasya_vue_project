@@ -1,14 +1,17 @@
 <script setup>
 import { ref } from 'vue';
 
-// Task#37 - Dynamic Class Binding
-const cssClasses = ref('highlight bold');
+// Task#38 - Object-based Class Binding
+const obj = ref({
+  done: true,
+  selected: false,
+});
 </script>
 
 <template>
   <div class="styled-container">
-    <h1>Task#37 - Dynamic Class Binding</h1>
-    <p :class="cssClasses">This is a styled paragraph.</p>
+    <h1>Task#38 - Object-based Class Binding</h1>
+    <p :class="obj">This paragraph has conditional classes.</p>
   </div>
 </template>
 
@@ -20,11 +23,13 @@ const cssClasses = ref('highlight bold');
   border-radius: 10px;
 }
 
-.highlight {
-  color: blue;
+.done {
+  text-decoration: line-through;
+  color: green;
 }
 
-.bold {
+.selected {
   font-weight: bold;
+  color: red;
 }
 </style>
