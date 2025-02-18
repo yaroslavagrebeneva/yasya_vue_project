@@ -1,31 +1,17 @@
 <script setup>
 import { ref } from 'vue';
 
-// Task#39 - Reactive Class Binding
+// Task#40 - Inline Object Class Binding
 const obj = ref({
-  hidden: true,
+  active: true,
+  valid: false,
 });
-
-const showElement = () => {
-  obj.value.hidden = false;
-};
-
-const hideElement = () => {
-  obj.value.hidden = true;
-};
-
-const toggleElement = () => {
-  obj.value.hidden = !obj.value.hidden;
-};
 </script>
 
 <template>
   <div class="styled-container">
-    <h1>Task#39 - Reactive Class Binding</h1>
-    <p :class="obj">This paragraph can be shown or hidden.</p>
-    <button @click="showElement">Show</button>
-    <button @click="hideElement">Hide</button>
-    <button @click="toggleElement">Toggle</button>
+    <h1>Task#40 - Inline Object Class Binding</h1>
+    <p :class="obj">This paragraph has inline class binding.</p>
   </div>
 </template>
 
@@ -37,7 +23,12 @@ const toggleElement = () => {
   border-radius: 10px;
 }
 
-.hidden {
-  display: none;
+.active {
+  color: green;
+  font-weight: bold;
+}
+
+.valid {
+  text-decoration: underline;
 }
 </style>
