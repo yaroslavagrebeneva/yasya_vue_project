@@ -1,27 +1,32 @@
 <script setup>
 import { ref } from 'vue';
 
-// Task#41 - Dynamic Style Binding
-const isValid = ref(true);
-const isDisabled = ref(true);
+// Task#43_1 - Two-way binding with input
+const message = ref('');
 
-// Task#42_1 - Green text, yellow background
-const textStyle1 = ref({ color: 'green', backgroundColor: 'yellow' });
+// Task#43_2 - Uppercase transformation
+const upperMessage = ref('');
 
-// Task#42_2 - Bold and italic text
-const textStyle2 = ref({ fontWeight: 'bold', fontStyle: 'italic' });
+// Task#43_3 - Square of input number
+const number = ref(0);
+const squaredNumber = ref(0);
 </script>
 
 <template>
   <div class="styled-container">
-    <h1>Task#41 - Dynamic Style Binding</h1>
-    <p :class="{ valid: isValid, disabled: isDisabled }" 
-       :style="textStyle1">
-      This paragraph has green text and yellow background.
-    </p>
-    <p :style="textStyle2">
-      This paragraph has bold and italic text.
-    </p>
+    <h1>Two-way Data Binding</h1>
+    
+    <!-- Task#43_1: Input binding -->
+    <input v-model="message" placeholder="Type something...">
+    <p>{{ message }}</p>
+    
+    <!-- Task#43_2: Uppercase transformation -->
+    <input v-model="upperMessage" @input="upperMessage = upperMessage.toUpperCase()" placeholder="Type here (uppercase)">
+    <p>{{ upperMessage }}</p>
+    
+    <!-- Task#43_3: Square of input number -->
+    <input v-model.number="number" @input="squaredNumber = number * number" type="number" placeholder="Enter a number">
+    <p>Squared: {{ squaredNumber }}</p>
   </div>
 </template>
 
@@ -33,13 +38,9 @@ const textStyle2 = ref({ fontWeight: 'bold', fontStyle: 'italic' });
   border-radius: 10px;
 }
 
-.valid {
-  color: green;
-  font-weight: bold;
-}
-
-.disabled {
-  opacity: 0.5;
-  pointer-events: none;
+input {
+  display: block;
+  margin: 10px auto;
+  padding: 5px;
 }
 </style>
