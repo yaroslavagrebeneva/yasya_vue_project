@@ -1,17 +1,17 @@
 <script setup>
 import { ref } from 'vue';
 
-// Task#40 - Inline Object Class Binding
-const obj = ref({
-  active: true,
-  valid: false,
-});
+// Task#41 - Dynamic Class Binding
+const isValid = ref(true);
+const isDisabled = ref(true);
 </script>
 
 <template>
   <div class="styled-container">
-    <h1>Task#40 - Inline Object Class Binding</h1>
-    <p :class="obj">This paragraph has inline class binding.</p>
+    <h1>Task#41 - Dynamic Class Binding</h1>
+    <p :class="{ valid: isValid, disabled: isDisabled }">
+      This paragraph has dynamic class binding.
+    </p>
   </div>
 </template>
 
@@ -23,12 +23,13 @@ const obj = ref({
   border-radius: 10px;
 }
 
-.active {
+.valid {
   color: green;
   font-weight: bold;
 }
 
-.valid {
-  text-decoration: underline;
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
 }
 </style>
