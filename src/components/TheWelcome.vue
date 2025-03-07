@@ -1,14 +1,10 @@
 <template>
   <div>
-    <!-- Задание 1 -->
-    <input v-model="newItem" type="text" />
-    <button @click="addItemToEnd">Add to end</button>
     <ul>
-      <li v-for="(item, index) in items" :key="index">{{ item }}</li>
+      <li v-for="(item, index) in items" :key="index" @click="removeItem(index)">
+        {{ item }}
+      </li>
     </ul>
-
-    <!-- Задание 2 -->
-    <button @click="addItemToStart">Add to start</button>
   </div>
 </template>
 
@@ -16,22 +12,12 @@
 export default {
   data() {
     return {
-      newItem: '',
-      items: ['item 1', 'item 2', 'item 3'],
+      items: ['item 1', 'item 2', 'item 3', 'item 4'],
     };
   },
   methods: {
-    addItemToEnd() {
-      if (this.newItem.trim() !== '') {
-        this.items.push(this.newItem);
-        this.newItem = '';
-      }
-    },
-    addItemToStart() {
-      if (this.newItem.trim() !== '') {
-        this.items.unshift(this.newItem);
-        this.newItem = '';
-      }
+    removeItem(index) {
+      this.items.splice(index, 1);
     },
   },
 };
