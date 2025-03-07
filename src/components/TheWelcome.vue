@@ -1,29 +1,24 @@
-<script setup>
-import { ref } from 'vue';
-
-// Task#46_1 - Checkbox controlled visibility
-const checked = ref(true);
-</script>
-
 <template>
-  <div class="styled-container">
-    <h1>Task#46 - Checkbox Handling</h1>
-    
-    <!-- Task#46_1: Checkbox controls paragraph visibility -->
-    <input type="checkbox" v-model="checked"> Show text
-    <p v-if="checked">This text is visible when the checkbox is checked.</p>
+  <div>
+    <label for="city">В каком городе вы живете?</label>
+    <select v-model="city" id="city">
+      <option value="Moscow">Москва</option>
+      <option value="Saint Petersburg">Санкт-Петербург</option>
+      <option value="Novosibirsk">Новосибирск</option>
+      <option value="Yekaterinburg">Екатеринбург</option>
+      <option value="Kazan">Казань</option>
+    </select>
+
+    <p>Вы живете в: {{ city }}</p>
   </div>
 </template>
 
-<style>
-.styled-container {
-  text-align: center;
-  background-color: #f8f9fa;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-input {
-  margin: 10px;
-}
-</style>
+<script>
+export default {
+  data() {
+    return {
+      city: '',
+    };
+  },
+};
+</script>
