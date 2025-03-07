@@ -1,13 +1,14 @@
 <template>
   <div>
     <!-- Задание 1 -->
-    <input type="text" v-bind:disabled="isDisabled" id="inputField" />
-    <button @click="toggleInput">Toggle Input</button>
+    <input v-model="newItem" type="text" />
+    <button @click="addItemToEnd">Add to end</button>
+    <ul>
+      <li v-for="(item, index) in items" :key="index">{{ item }}</li>
+    </ul>
 
     <!-- Задание 2 -->
-    <label for="checkbox">Enable input:</label>
-    <input type="checkbox" v-model="isEnabled" id="checkbox" />
-    <input type="text" :disabled="!isEnabled" id="inputField" />
+    <button @click="addItemToStart">Add to start</button>
   </div>
 </template>
 
@@ -15,13 +16,22 @@
 export default {
   data() {
     return {
-      isDisabled: false,
-      isEnabled: true,
+      newItem: '',
+      items: ['item 1', 'item 2', 'item 3'],
     };
   },
   methods: {
-    toggleInput() {
-      this.isDisabled = !this.isDisabled;
+    addItemToEnd() {
+      if (this.newItem.trim() !== '') {
+        this.items.push(this.newItem);
+        this.newItem = '';
+      }
+    },
+    addItemToStart() {
+      if (this.newItem.trim() !== '') {
+        this.items.unshift(this.newItem);
+        this.newItem = '';
+      }
     },
   },
 };
